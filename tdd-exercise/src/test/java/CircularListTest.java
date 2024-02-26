@@ -63,6 +63,14 @@ public class CircularListTest {
 
     @Test
     void testBackwardIteration() {
+        final int expectedElement = this.elements.get(0);
+        this.list.next();
+        final int current = this.list.previous().get();
+        assertEquals(expectedElement, current);
+    }
+
+    @Test
+    void testCircularBackwardIteration() {
         final int lastElement = this.elements.get(this.elements.size() - 1);
         assertEquals(lastElement, this.list.previous().get());
     }
