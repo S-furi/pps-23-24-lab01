@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
+import java.util.stream.IntStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,5 +52,12 @@ public class CircularListTest {
     void testForwardIteration() {
         final Iterator<Integer> expectedElements = this.elements.iterator();
         assertEquals(expectedElements.next(), this.list.next().get());
+    }
+
+    @Test
+    void testCircularForwardIteration() {
+        final int headElement = this.elements.get(0);
+        IntStream.range(0, this.list.size()).forEach(i -> this.list.next());
+        assertEquals(Optional.of(headElement), this.list.next());
     }
 }
