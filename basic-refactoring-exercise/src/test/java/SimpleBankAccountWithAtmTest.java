@@ -1,10 +1,11 @@
 import org.junit.jupiter.api.BeforeEach;
 
 import example.model.AccountHolder;
+import example.model.BankAccount;
 
 public class SimpleBankAccountWithAtmTest {
-    private final BankAccount bankAccount;
-    private final AccountHolder accountHolder;
+    private BankAccount bankAccount;
+    private AccountHolder accountHolder;
 
     @BeforeEach
     void setUp() {
