@@ -31,4 +31,13 @@ public class SimpleBankAccountWithAtmTest {
     }
 
     @Test
+    void testWithdraw() {
+        this.bankAccount.deposit(this.accountHolder.getId(), TEST_DEPOSIT_BALANCE);
+        double withdrawAmount = 50.0;
+
+        this.bankAccount.withdraw(this.accountHolder.getId(), withdrawAmount);
+
+        double expectedBalance = TEST_DEPOSIT_BALANCE - withdrawAmount - SimpleBankAccountWithAtm.ATM_FEE;
+        assertEquals(expectedBalance, this.bankAccount.getBalance());
+    }
 }
