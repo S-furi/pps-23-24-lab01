@@ -13,6 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import tdd.CircularList;
+import tdd.CircularListImpl;
 
 /**
  * The test suite for testing the CircularList implementation
@@ -94,5 +95,15 @@ public class CircularListTest {
         IntStream.range(0, this.elements.size()).forEach(t -> this.list.next());
 
         assertEquals(newElement, this.list.next().get());
+    }
+
+    @Test
+    void testForwardBackward() {
+        this.list.next();
+        this.list.next();
+        this.list.next();
+        final var actual = this.list.previous();
+
+        assertEquals(this.elements.get(this.elements.size() - 1), actual.get());
     }
 }
