@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Collections;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import tdd.CircularList;
@@ -13,28 +14,27 @@ import tdd.CircularList;
  * The test suite for testing the CircularList implementation
  */
 public class CircularListTest {
+    private final List<Object> elements = List.of(10, 20, 30);
+    private CircularList list ;
+
+    @BeforeEach
+    void setUp() {
+        this.list = new CircularListImpl(elements);
+    }
 
     @Test
     void testEmptyCircularListCreation() {
-        final CircularList list = new CircularListImpl(
-            Collections.emptyList()
-        );
+        this.list = new CircularListImpl(Collections.emptyList());
         assertTrue(list.isEmpty());
     }
 
     @Test
     void testNonEmptyCircularListCreation() {
-        final List<Object> elements = List.of(10, 20, 30);
-        final CircularList list = new CircularListImpl(elements);
-
         assertFalse(list.isEmpty());
     }
 
     @Test
     void testNonEmptyCircularListSize() {
-        final List<Object> elemets = List.of(10, 20, 30);
-        final CircularList list = new CircularListImpl(elemets);
-
-        assertEquals(elemets.size(), list.size());
+        assertEquals(this.elements.size(), list.size());
     }
 }
