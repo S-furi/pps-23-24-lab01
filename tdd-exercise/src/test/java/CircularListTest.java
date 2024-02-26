@@ -29,4 +29,12 @@ public class CircularListTest {
 
         assertFalse(list.isEmpty());
     }
+
+    @Test
+    void testNonEmptyCircularListSize() {
+        final List<Object> elemets = List.of(10, 20, 30);
+        final CircularList list = new CircularListImpl(elemets);
+
+        assertEquals(elemets.size(), list.size());
+    }
 }
