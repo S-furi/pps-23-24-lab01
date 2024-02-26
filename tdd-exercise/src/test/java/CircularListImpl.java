@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
@@ -51,5 +50,4 @@ public class CircularListImpl implements CircularList {
     public void reset() {
         this.listIterator = this.list.listIterator();
     }
-
 }

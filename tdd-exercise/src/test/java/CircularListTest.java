@@ -80,7 +80,6 @@ public class CircularListTest {
     void testReset() {
         final int firstElement = this.list.next().get();
         final int secondElement = this.list.next().get();
-
         this.list.reset();
         final int newFirstElement = firstElement;
 
@@ -91,15 +90,9 @@ public class CircularListTest {
     @Test
     void testPropagationOfChangesBetweenListAndIterator() {
         final int newElement = 420;
-
         this.list.add(newElement);
+        IntStream.range(0, this.elements.size()).forEach(t -> this.list.next());
 
-        for (var i = 0; i < this.elements.size(); i++) {
-            this.list.next();
-        }
-
-        // IntStream.range(0, this.elements.size()).forEach(t -> this.list.next());
-        
         assertEquals(newElement, this.list.next().get());
     }
 }
