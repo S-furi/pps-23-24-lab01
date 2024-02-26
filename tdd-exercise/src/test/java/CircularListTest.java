@@ -14,7 +14,7 @@ import tdd.CircularList;
  * The test suite for testing the CircularList implementation
  */
 public class CircularListTest {
-    private final List<Object> elements = List.of(10, 20, 30);
+    private final List<Integer> elements = List.of(10, 20, 30);
     private CircularList list ;
 
     @BeforeEach

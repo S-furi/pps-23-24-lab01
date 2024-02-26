@@ -4,14 +4,14 @@ import java.util.Optional;
 import tdd.CircularList;
 
 public class CircularListImpl implements CircularList {
-    private final List<Object> list;
+    private final List<Integer> list;
 
-    public CircularListImpl(final List<Object> list) {
+    public CircularListImpl(final List<Integer> list) {
         this.list = list;
     }
 
     @Override
-    public void add(int element) {
+    public void add(final int element) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
