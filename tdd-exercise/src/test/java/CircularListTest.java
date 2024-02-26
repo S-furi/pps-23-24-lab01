@@ -81,7 +81,7 @@ public class CircularListTest {
         final int firstElement = this.list.next().get();
         final int secondElement = this.list.next().get();
         this.list.reset();
-        final int newFirstElement = firstElement;
+        final int newFirstElement = this.list.next().get();
 
         assertNotEquals(firstElement, secondElement);
         assertEquals(firstElement, newFirstElement);
