@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -6,9 +7,11 @@ import tdd.CircularList;
 
 public class CircularListImpl implements CircularList {
     private final List<Integer> list;
+    private Iterator<Integer> listIterator;
 
     public CircularListImpl(final List<Integer> list) {
         this.list = new ArrayList<>(list);
+        this.listIterator = this.list.iterator();
     }
 
     @Override
@@ -28,8 +31,10 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> next() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'next'");
+        if (!this.listIterator.hasNext()) {
+            this.listIterator = this.list.iterator();
+        }
+        return Optional.of(this.listIterator.next());
     }
 
     @Override
