@@ -1,9 +1,8 @@
+package tdd;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Optional;
-
-import tdd.CircularList;
 
 public class CircularListImpl implements CircularList {
     private final List<Integer> list;
