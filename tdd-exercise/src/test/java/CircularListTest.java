@@ -60,4 +60,10 @@ public class CircularListTest {
         IntStream.range(0, this.list.size()).forEach(i -> this.list.next());
         assertEquals(Optional.of(headElement), this.list.next());
     }
+
+    @Test
+    void testBackwardIteration() {
+        final int lastElement = this.elements.get(this.elements.size() - 1);
+        assertEquals(lastElement, this.list.previous().get());
+    }
 }
