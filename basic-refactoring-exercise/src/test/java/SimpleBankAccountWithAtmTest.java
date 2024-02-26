@@ -3,7 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import example.model.AccountHolder;
 
 public class SimpleBankAccountWithAtmTest {
-    private final SimpleBankAccountWithAtm bankAccount;
+    private final BankAccount bankAccount;
     private final AccountHolder accountHolder;
 
     @BeforeEach
