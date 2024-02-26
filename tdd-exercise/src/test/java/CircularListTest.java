@@ -1,5 +1,6 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collections;
@@ -73,5 +74,17 @@ public class CircularListTest {
     void testCircularBackwardIteration() {
         final int lastElement = this.elements.get(this.elements.size() - 1);
         assertEquals(lastElement, this.list.previous().get());
+    }
+
+    @Test
+    void testReset() {
+        final int firstElement = this.list.next().get();
+        final int secondElement = this.list.next().get();
+
+        this.list.reset();
+        final int newFirstElement = firstElement;
+
+        assertNotEquals(firstElement, secondElement);
+        assertEquals(firstElement, newFirstElement);
     }
 }

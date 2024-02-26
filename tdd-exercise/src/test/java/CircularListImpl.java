@@ -48,8 +48,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void reset() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'reset'");
+        this.listIterator = this.list.listIterator();
     }
 
 }
