@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.stream.IntStream;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -39,5 +41,14 @@ public class SimpleBankAccountWithAtmTest {
 
         double expectedBalance = TEST_DEPOSIT_BALANCE - withdrawAmount - SimpleBankAccountWithAtm.ATM_FEE;
         assertEquals(expectedBalance, this.bankAccount.getBalance());
+    }
+
+    @Test
+    void testMultipleDepositIncrementBalance() {
+        int numberOfDeposits = 5;
+        IntStream.range(0, 5).forEach(t -> 
+            this.bankAccount.deposit(this.accountHolder.getId(), TEST_DEPOSIT_BALANCE)
+        );
+        assertEquals((TEST_DEPOSIT_BALANCE - SimpleBankAccountWithAtm.ATM_FEE) * numberOfDeposits, this.bankAccount.getBalance());
     }
 }
