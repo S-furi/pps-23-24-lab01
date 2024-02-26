@@ -7,7 +7,7 @@ public class CircularListImpl implements CircularList {
     private final List<Integer> list;
 
     public CircularListImpl(final List<Integer> list) {
-        this.list = list;
+        this.list = new ArrayList<>(list);
     }
 
     @Override
