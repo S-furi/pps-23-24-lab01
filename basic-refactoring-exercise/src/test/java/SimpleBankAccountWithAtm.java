@@ -3,21 +3,21 @@ import example.model.BankAccount;
 
 public class SimpleBankAccountWithAtm implements BankAccount {
     private final AccountHolder accountHolder;
+    private double balance;
 
-    public SimpleBankAccountWithAtm(final AccountHolder accountHolder) {
+    public SimpleBankAccountWithAtm(final AccountHolder accountHolder, final dobule balance) {
         this.accountHolder = accountHolder;
+        this.balance = balance;
     }
 
     @Override
     public AccountHolder getHolder() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getHolder'");
+        return this.accountHolder;
     }
 
     @Override
     public double getBalance() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBalance'");
+        return this.balance;
     }
 
     @Override
