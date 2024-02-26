@@ -32,7 +32,7 @@ public class SimpleBankAccountWithAtmTest {
 
     @Test
     void testWithdraw() {
-        this.bankAccount.deposit(this.accountHolder.getId(), TEST_DEPOSIT_BALANCE);
+        this.bankAccount.deposit(this.accountHolder.getId(), TEST_DEPOSIT_BALANCE + SimpleBankAccountWithAtm.ATM_FEE);
         double withdrawAmount = 50.0;
 
         this.bankAccount.withdraw(this.accountHolder.getId(), withdrawAmount);
