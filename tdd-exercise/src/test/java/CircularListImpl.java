@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,8 +13,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void add(final int element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        this.list.add(element);
     }
 
     @Override
