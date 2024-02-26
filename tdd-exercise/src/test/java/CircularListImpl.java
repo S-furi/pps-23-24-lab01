@@ -18,6 +18,7 @@ public class CircularListImpl implements CircularList {
     @Override
     public void add(final int element) {
         this.list.add(element);
+        this.listIterator = list.listIterator();
     }
 
     @Override

@@ -87,4 +87,19 @@ public class CircularListTest {
         assertNotEquals(firstElement, secondElement);
         assertEquals(firstElement, newFirstElement);
     }
+
+    @Test
+    void testPropagationOfChangesBetweenListAndIterator() {
+        final int newElement = 420;
+
+        this.list.add(newElement);
+
+        for (var i = 0; i < this.elements.size(); i++) {
+            this.list.next();
+        }
+
+        // IntStream.range(0, this.elements.size()).forEach(t -> this.list.next());
+        
+        assertEquals(newElement, this.list.next().get());
+    }
 }
