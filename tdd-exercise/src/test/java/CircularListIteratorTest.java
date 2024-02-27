@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class CircularListIteratorTest {
     private CiruclarListIterator list;
@@ -67,5 +68,15 @@ public class CircularListIteratorTest {
     @Test
     void testBackwardOverlap() {
         assertEquals(this.elements.get(this.elements.size() - 1), this.list.backwardIterator().next());
+    }
+
+    @Test
+    void testSimpleBackwardIteration() {
+        final Iterator<Integer> circularIterator = this.list.backwardIterator();
+        final ListIterator<Integer> expectedIterator = this.elements.listIterator(this.elements.size());
+
+        while (circularIterator.hasNext()) {
+            assertEquals(expectedIterator.previous(), circularIterator.next());
+        }
     }
 }
