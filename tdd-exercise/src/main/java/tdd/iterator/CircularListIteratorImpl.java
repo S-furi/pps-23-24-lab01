@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import tdd.CircularIteratorFactory;
+
 public class CircularListIteratorImpl implements CiruclarListIterator {
     private final List<Integer> list;
 
