@@ -83,11 +83,21 @@ public class CircularListIteratorTest {
     }
 
     private boolean checkIteratorsEquality(final Iterator<Integer> expected, final Iterator<Integer> actual) {
-        while (actual.hasNext()) {
+        while (expected.hasNext()) {
             if (!expected.next().equals(actual.next())) {
                 return false;
             }
         }
         return true;
+    }
+
+    @Test
+    void testForwardIterationWithOverlap() {
+        final Iterator<Integer> circularIterator = this.list.forwardIterator();
+        
+        for (var i = 0; i < this.list.size(); i++) {
+            circularIterator.next();
+        }
+        assertEquals(this.elements.get(0), circularIterator.next());
     }
 }

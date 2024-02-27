@@ -28,7 +28,7 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
 
     @Override
     public Iterator<Integer> forwardIterator() {
-        return this.list.iterator();
+        return new CircularIteratorImpl(this.list);
     }
 
     @Override
