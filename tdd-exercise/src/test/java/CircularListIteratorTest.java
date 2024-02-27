@@ -100,4 +100,6 @@ public class CircularListIteratorTest {
         }
         return true;
     }
+
+    // TODO: test propagation of changes and `add` function
 }
