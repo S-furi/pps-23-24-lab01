@@ -46,4 +46,10 @@ public class CircularListIteratorTest {
         assertNotEquals(0, this.list.size());
         assertEquals(this.elements.size(), this.list.size());
     }
+
+    @Test
+    void testAdd() {
+        this.list.add(420);
+        assertEquals(this.elements.size() + 1, this.list.size());
+    }
 }

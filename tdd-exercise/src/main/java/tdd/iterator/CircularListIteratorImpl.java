@@ -1,4 +1,5 @@
 package tdd.iterator;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -6,7 +7,7 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
     private final List<Integer> list;
 
     public CircularListIteratorImpl(final List<Integer> list) {
-        this.list = list;
+        this.list = new ArrayList<Integer>(list);
     }
 
     @Override
@@ -20,6 +21,11 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
     }
 
     @Override
+    public void add(final int element) {
+        this.list.add(element);
+    }
+
+    @Override
     public Iterator<Integer> forwardIterator() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'forwardIterator'");
@@ -29,11 +35,5 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
     public Iterator<Integer> backwardIterator() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'backwardIterator'");
-    }
-
-    @Override
-    public void add(int element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
 }
