@@ -69,6 +69,16 @@ public class CircularListIteratorTest {
     }
 
     @Test
+    void testForwardOverlap() {
+        final Iterator<Integer> circularIterator = this.list.forwardIterator();
+        
+        for (var i = 0; i < this.list.size(); i++) {
+            circularIterator.next();
+        }
+        assertEquals(this.elements.get(0), circularIterator.next());
+    }
+
+    @Test
     void testBackwardIterationWithoutOverlap() {
         final Iterator<Integer> circularIterator = this.list.backwardIterator();
         final Iterator<Integer> expectedIterator = getReversedList(this.elements).iterator();
@@ -89,15 +99,5 @@ public class CircularListIteratorTest {
             }
         }
         return true;
-    }
-
-    @Test
-    void testForwardIterationWithOverlap() {
-        final Iterator<Integer> circularIterator = this.list.forwardIterator();
-        
-        for (var i = 0; i < this.list.size(); i++) {
-            circularIterator.next();
-        }
-        assertEquals(this.elements.get(0), circularIterator.next());
     }
 }
