@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 
 public class CircularListIteratorTest {
@@ -51,5 +52,15 @@ public class CircularListIteratorTest {
     void testAdd() {
         this.list.add(420);
         assertEquals(this.elements.size() + 1, this.list.size());
+    }
+
+    @Test
+    void testSimpleForwardIteration() {
+        final Iterator<Integer> circularIterator = this.list.forwardIterator();
+        final Iterator<Integer> expectedIterator = this.elements.iterator();
+
+        while (circularIterator.hasNext()) {
+            assertEquals(expectedIterator.next(), circularIterator.next());
+        }
     }
 }

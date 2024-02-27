@@ -27,8 +27,7 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
 
     @Override
     public Iterator<Integer> forwardIterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'forwardIterator'");
+        return this.list.iterator();
     }
 
     @Override
