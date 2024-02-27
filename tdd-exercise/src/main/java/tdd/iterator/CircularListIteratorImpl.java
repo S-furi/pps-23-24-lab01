@@ -1,5 +1,6 @@
 package tdd.iterator;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -32,7 +33,8 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
 
     @Override
     public Iterator<Integer> backwardIterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'backwardIterator'");
+        final List<Integer> copy = new ArrayList<>(this.list);
+        Collections.reverse(copy);
+        return copy.iterator();
     }
 }

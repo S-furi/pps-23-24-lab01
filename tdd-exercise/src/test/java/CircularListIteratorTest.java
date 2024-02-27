@@ -63,4 +63,9 @@ public class CircularListIteratorTest {
             assertEquals(expectedIterator.next(), circularIterator.next());
         }
     }
+
+    @Test
+    void testBackwardOverlap() {
+        assertEquals(this.elements.get(this.elements.size() - 1), this.list.backwardIterator().next());
+    }
 }
