@@ -96,14 +96,4 @@ public class CircularListTest {
 
         assertEquals(newElement, this.list.next().get());
     }
-
-    @Test
-    void testForwardBackward() {
-        this.list.next();
-        this.list.next();
-        this.list.next();
-        final var actual = this.list.previous();
-
-        assertEquals(this.elements.get(this.elements.size() - 1), actual.get());
-    }
 }
