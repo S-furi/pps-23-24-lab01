@@ -35,6 +35,6 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
     public Iterator<Integer> backwardIterator() {
         final List<Integer> copy = new ArrayList<>(this.list);
         Collections.reverse(copy);
-        return copy.iterator();
+        return new CircularIteratorImpl(copy);
     }
 }
