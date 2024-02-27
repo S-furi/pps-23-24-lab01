@@ -1,11 +1,11 @@
 package tdd.filter;
 import java.util.List;
 
-public class CircularFilterListImpl implements CircularFilterList {
+import tdd.AbstractCircularListIterator;
 
-    private final List<Integer> list;
+public class CircularFilterListImpl extends AbstractCircularListIterator implements CircularFilterList {
 
     public CircularFilterListImpl(final List<Integer> list) {
-        this.list = list;
+        super(list);
     }
 }
