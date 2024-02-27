@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 import tdd.iterator.CircularListIteratorImpl;
 import tdd.iterator.CiruclarListIterator;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -31,5 +34,16 @@ public class CircularListIteratorTest {
             Collections.emptyList()
             );
         assertTrue(list.isEmpty());
+    }
+
+    @Test
+    void testNonEmptyList() {
+        assertFalse(this.list.isEmpty());
+    }
+
+    @Test
+    void testNonEmptyListSizeMustBeGreaterThanZero() {
+        assertNotEquals(0, this.list.size());
+        assertEquals(this.elements.size(), this.list.size());
     }
 }

@@ -15,6 +15,11 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
     }
 
     @Override
+    public int size() {
+        return this.list.size();
+    }
+
+    @Override
     public Iterator<Integer> forwardIterator() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'forwardIterator'");
@@ -31,11 +36,4 @@ public class CircularListIteratorImpl implements CiruclarListIterator {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }
-
-    @Override
-    public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
-    }
-
 }
