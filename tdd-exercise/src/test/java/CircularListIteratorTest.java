@@ -10,10 +10,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class CircularListIteratorTest {
     private CiruclarListIterator list;
@@ -60,9 +60,7 @@ public class CircularListIteratorTest {
         final Iterator<Integer> circularIterator = this.list.forwardIterator();
         final Iterator<Integer> expectedIterator = this.elements.iterator();
 
-        while (circularIterator.hasNext()) {
-            assertEquals(expectedIterator.next(), circularIterator.next());
-        }
+        assertTrue(checkIteratorsEquality(expectedIterator, circularIterator));
     }
 
     @Test
@@ -73,10 +71,23 @@ public class CircularListIteratorTest {
     @Test
     void testSimpleBackwardIteration() {
         final Iterator<Integer> circularIterator = this.list.backwardIterator();
-        final ListIterator<Integer> expectedIterator = this.elements.listIterator(this.elements.size());
+        final Iterator<Integer> expectedIterator = getReversedList(this.elements).iterator();
 
-        while (circularIterator.hasNext()) {
-            assertEquals(expectedIterator.previous(), circularIterator.next());
+        assertTrue(checkIteratorsEquality(expectedIterator, circularIterator));
+    }
+
+    private List<Integer> getReversedList(final List<Integer> list) {
+        final List<Integer> reversed = new ArrayList<>(list);
+        Collections.reverse(reversed);
+        return reversed;
+    }
+
+    private boolean checkIteratorsEquality(final Iterator<Integer> expected, final Iterator<Integer> actual) {
+        while (actual.hasNext()) {
+            if (!expected.next().equals(actual.next())) {
+                return false;
+            }
         }
+        return true;
     }
 }
