@@ -56,7 +56,7 @@ public class CircularListIteratorTest {
     }
 
     @Test
-    void testSimpleForwardIteration() {
+    void testForwardIterationWithoutOverlap() {
         final Iterator<Integer> circularIterator = this.list.forwardIterator();
         final Iterator<Integer> expectedIterator = this.elements.iterator();
 
@@ -69,7 +69,7 @@ public class CircularListIteratorTest {
     }
 
     @Test
-    void testSimpleBackwardIteration() {
+    void testBackwardIterationWithoutOverlap() {
         final Iterator<Integer> circularIterator = this.list.backwardIterator();
         final Iterator<Integer> expectedIterator = getReversedList(this.elements).iterator();
 
